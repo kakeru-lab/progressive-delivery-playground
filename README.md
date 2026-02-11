@@ -1,3 +1,5 @@
+[![ci](https://github.com/kakeru-lab/progressive-delivery-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/kakeru-lab/progressive-delivery-playground/actions/workflows/ci.yml)
+
 # progressive-delivery-playground
 Local-only Terraform starter (no cloud required).
 
