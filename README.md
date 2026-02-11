@@ -1,5 +1,7 @@
 [![ci](https://github.com/kakeru-lab/progressive-delivery-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/kakeru-lab/progressive-delivery-playground/actions/workflows/ci.yml)
 
+CI: gofmt check + go vet + go test + docker build (on push/PR)
+
 # progressive-delivery-playground
 
 Local-only **Progressive Delivery** playground (no cloud required).
