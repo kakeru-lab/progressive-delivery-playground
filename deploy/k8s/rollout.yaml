@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: pdp
+  namespace: pdp
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: pdp
+  template:
+    metadata:
+      labels:
+        app: pdp
+    spec:
+      containers:
+        - name: app
+          image: pdp:local
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: APP_VERSION
+              value: "v1"
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 1
+            periodSeconds: 2
+  strategy:
+    canary:
+      steps:
+        - setWeight: 10
+        - pause: {duration: 10s}
+        - setWeight: 50
+        - pause: {duration: 10s}
+        - setWeight: 100
