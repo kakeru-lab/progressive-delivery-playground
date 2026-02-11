@@ -1,8 +1,0 @@
-server:
-  addr: ":8080"
-
-memory:
-  sqlite_path: "./agent.db"
-
-tools:
-  tail_log_default: "/var/log/system.log"
